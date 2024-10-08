@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<file>
+  <ca>
+    <name>CA</name>
+  </ca>
+  <intermediate>
+    <name>INTERMEDIATE</name>
+  </intermediate>
+	<server>
+		<name>grafana</name>
+		<signedInter>Inter</signedInter>
+		<duration>365</duration>
+	</server>
+	<server>
+		<name>MariaDB</name>
+		<signedInter>Inter</signedInter>
+		<duration>365</duration>
+	</server>
+	<server>
+		<name>Docker</name>
+		<signedInter>Inter</signedInter>
+		<duration>365</duration>
+	</server>
+</file>
