@@ -5,9 +5,4 @@
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <None Update="DataSet1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
 </Project>

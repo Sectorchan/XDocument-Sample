@@ -87,7 +87,7 @@
             button4.TabIndex = 4;
             button4.Text = "create xml.xml";
             button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            button4.Click += Createxml_Click;
             // 
             // button5
             // 
@@ -98,7 +98,7 @@
             button5.TabIndex = 5;
             button5.Text = "replace entry with textbox";
             button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
+            button5.Click += Replace_Click;
             // 
             // textBox2
             // 
@@ -128,13 +128,13 @@
             // 
             // button6
             // 
-            button6.Location = new Point(477, 293);
+            button6.Location = new Point(479, 164);
             button6.Name = "button6";
             button6.Size = new Size(75, 23);
             button6.TabIndex = 9;
-            button6.Text = "button6";
+            button6.Text = "add server to xml";
             button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
+            button6.Click += AddServer_Click;
             // 
             // Form1
             // 
@@ -153,6 +153,7 @@
             Controls.Add(textBox1);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
