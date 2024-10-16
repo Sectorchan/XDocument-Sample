@@ -29,50 +29,53 @@
         private void InitializeComponent()
         {
             textBox1 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
+            bt_clist_write = new Button();
+            bt_delete = new Button();
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
             textBox2 = new TextBox();
             textBox3 = new TextBox();
-            listBox1 = new ListBox();
+            lb_caliste = new ListBox();
             button6 = new Button();
             SuspendLayout();
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(45, 72);
+            textBox1.Location = new Point(77, 144);
+            textBox1.Margin = new Padding(5, 6, 5, 6);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
+            textBox1.Size = new Size(169, 35);
             textBox1.TabIndex = 0;
             // 
-            // button1
+            // bt_clist_write
             // 
-            button1.Location = new Point(260, 75);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 1;
-            button1.Text = "write";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            bt_clist_write.Location = new Point(446, 150);
+            bt_clist_write.Margin = new Padding(5, 6, 5, 6);
+            bt_clist_write.Name = "bt_clist_write";
+            bt_clist_write.Size = new Size(129, 46);
+            bt_clist_write.TabIndex = 1;
+            bt_clist_write.Text = "write";
+            bt_clist_write.UseVisualStyleBackColor = true;
+            bt_clist_write.Click += bt_clist_write_Click;
             // 
-            // button2
+            // bt_delete
             // 
-            button2.Location = new Point(260, 114);
-            button2.Margin = new Padding(2);
-            button2.Name = "button2";
-            button2.Size = new Size(76, 20);
-            button2.TabIndex = 2;
-            button2.Text = "search";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            bt_delete.Location = new Point(446, 228);
+            bt_delete.Margin = new Padding(3, 4, 3, 4);
+            bt_delete.Name = "bt_delete";
+            bt_delete.Size = new Size(130, 40);
+            bt_delete.TabIndex = 2;
+            bt_delete.Text = "delete";
+            bt_delete.UseVisualStyleBackColor = true;
+            bt_delete.Click += Bt_delete_Click;
             // 
             // button3
             // 
-            button3.Location = new Point(260, 147);
+            button3.Location = new Point(446, 294);
+            button3.Margin = new Padding(5, 6, 5, 6);
             button3.Name = "button3";
-            button3.Size = new Size(75, 23);
+            button3.Size = new Size(129, 46);
             button3.TabIndex = 3;
             button3.Text = "replace";
             button3.UseVisualStyleBackColor = true;
@@ -80,10 +83,10 @@
             // 
             // button4
             // 
-            button4.Location = new Point(474, 72);
-            button4.Margin = new Padding(2);
+            button4.Location = new Point(813, 144);
+            button4.Margin = new Padding(3, 4, 3, 4);
             button4.Name = "button4";
-            button4.Size = new Size(129, 23);
+            button4.Size = new Size(221, 46);
             button4.TabIndex = 4;
             button4.Text = "create xml.xml";
             button4.UseVisualStyleBackColor = true;
@@ -91,10 +94,10 @@
             // 
             // button5
             // 
-            button5.Location = new Point(479, 126);
-            button5.Margin = new Padding(2);
+            button5.Location = new Point(821, 252);
+            button5.Margin = new Padding(3, 4, 3, 4);
             button5.Name = "button5";
-            button5.Size = new Size(153, 24);
+            button5.Size = new Size(262, 48);
             button5.TabIndex = 5;
             button5.Text = "replace entry with textbox";
             button5.UseVisualStyleBackColor = true;
@@ -102,35 +105,37 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(499, 20);
-            textBox2.Margin = new Padding(2);
+            textBox2.Location = new Point(855, 40);
+            textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(104, 23);
+            textBox2.Size = new Size(175, 35);
             textBox2.TabIndex = 6;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(658, 126);
-            textBox3.Margin = new Padding(2);
+            textBox3.Location = new Point(1128, 252);
+            textBox3.Margin = new Padding(3, 4, 3, 4);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(104, 23);
+            textBox3.Size = new Size(175, 35);
             textBox3.TabIndex = 7;
             textBox3.Text = "grafana";
             // 
-            // listBox1
+            // lb_caliste
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(123, 260);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(120, 94);
-            listBox1.TabIndex = 8;
+            lb_caliste.FormattingEnabled = true;
+            lb_caliste.ItemHeight = 30;
+            lb_caliste.Location = new Point(211, 520);
+            lb_caliste.Margin = new Padding(5, 6, 5, 6);
+            lb_caliste.Name = "lb_caliste";
+            lb_caliste.Size = new Size(203, 184);
+            lb_caliste.TabIndex = 8;
             // 
             // button6
             // 
-            button6.Location = new Point(479, 164);
+            button6.Location = new Point(821, 328);
+            button6.Margin = new Padding(5, 6, 5, 6);
             button6.Name = "button6";
-            button6.Size = new Size(75, 23);
+            button6.Size = new Size(129, 46);
             button6.TabIndex = 9;
             button6.Text = "add server to xml";
             button6.UseVisualStyleBackColor = true;
@@ -138,19 +143,20 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1371, 900);
             Controls.Add(button6);
-            Controls.Add(listBox1);
+            Controls.Add(lb_caliste);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(bt_delete);
+            Controls.Add(bt_clist_write);
             Controls.Add(textBox1);
+            Margin = new Padding(5, 6, 5, 6);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
@@ -161,14 +167,14 @@
         #endregion
 
         private TextBox textBox1;
-        private Button button1;
-        private Button button2;
+        private Button bt_clist_write;
+        private Button bt_delete;
         private Button button3;
         private Button button4;
         private Button button5;
         private TextBox textBox2;
         private TextBox textBox3;
-        private ListBox listBox1;
+        private ListBox lb_caliste;
         private Button button6;
     }
 }

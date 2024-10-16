@@ -1,7 +1,9 @@
 using System.Configuration;
 using System.IO;
+using System.Windows.Forms;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace XDocument_Sample
 {
@@ -10,42 +12,67 @@ namespace XDocument_Sample
 
         readonly string file = "Sample.xml";
         readonly string xml = @"xml.xml";
+        string caliste = @"listen\ca-liste.txt";
+        string interliste = @"listen\inter-liste.txt";
+        string serverliste = @"listen\server-liste.txt";
+        string userliste = @"listen\user-liste.txt";
         int CAident = Properties.Settings.Default.CAID;
         int Intident = Properties.Settings.Default.InterID;
         int Servident = Properties.Settings.Default.ServerID;
         int Usrident = Properties.Settings.Default.UserID;
 
+        /// <summary>
+        /// reads the CA-List
+        /// </summary>
+        /// <param name="refresh">clears upfront the listBox</param>
+        public void Cblist_read(bool refreshList)
+        {
+            using (StreamReader sr = new StreamReader(caliste))
+            {
+                if (refreshList)
+                {
+                    lb_caliste.Items.Clear();
+                }
+                while (true)
+                {
+                    string line = sr.ReadLine();
+                    if (line == null)
+                    {
+                        break;
+                    }
+                    lb_caliste.Items.Add(line); // Use line.
+                }
+            }
+            lb_caliste.Sorted = true;
+        }
 
         public Form1()
         {
             InitializeComponent();
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void bt_clist_write_Click(object sender, EventArgs e)
         {
-            try
+            if (!lb_caliste.Items.Cast<string>().Contains(textBox1.Text))
+
             {
-                XDocument doc =
-              new XDocument(
-                new XElement("file",
-                  new XElement("name2", "sample12"),
-                  new XElement("CA", "CA_Name"),
-
-                  new XElement("name")
-
-                )
-              );
-
-                doc.Save("Sample.xml");
+                MessageBox.Show("no duplicate");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Fehler bei Debugoutput", ex.Message, MessageBoxButtons.OK);
+                MessageBox.Show("duplicate");
+                return;
+            };
+            StreamWriter sw = new StreamWriter(caliste, true);
+            sw.WriteLine(textBox1.Text);
+            sw.Close();
 
-            }
+            Cblist_read(true);
+
+
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
+            Cblist_read(false);
 
             XDocument doc =
               new XDocument(
@@ -323,7 +350,7 @@ namespace XDocument_Sample
 
         private void AddServer_Click(object sender, EventArgs e)
         {
-            
+
             XDocument doc = XDocument.Load(xml);
             doc.Root.Element("CA").Add(
                new XElement("name", "Sample-CA"),
@@ -351,7 +378,14 @@ namespace XDocument_Sample
             doc.Save(xml);
         }
 
-       
+        private void Bt_delete_Click(object sender, EventArgs e)
+        {
+            using (StreamReader sr = new StreamReader(caliste))
+            {
+                string selectedItem = lb_caliste.SelectedItem.ToString();
+                
+            }
+        }
     }
 
 }
