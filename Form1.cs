@@ -1,5 +1,8 @@
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
 using System.IO;
+using System.Text;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using System.Xml.XPath;
@@ -12,7 +15,7 @@ namespace XDocument_Sample
 
         readonly string file = "Sample.xml";
         readonly string xml = @"xml.xml";
-        string caliste = @"listen\ca-liste.txt";
+        private string caliste = @"listen\ca-liste.txt";
         string interliste = @"listen\inter-liste.txt";
         string serverliste = @"listen\server-liste.txt";
         string userliste = @"listen\user-liste.txt";
@@ -67,7 +70,7 @@ namespace XDocument_Sample
             sw.Close();
 
             Cblist_read(true);
-
+            
 
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -380,10 +383,34 @@ namespace XDocument_Sample
 
         private void Bt_delete_Click(object sender, EventArgs e)
         {
-            using (StreamReader sr = new StreamReader(caliste))
+            string line;
+            string line_to_delete = lb_caliste.SelectedItem.ToString();
+            string calistetmp = "caliste.tmp";
+
+            try
             {
-                string selectedItem = lb_caliste.SelectedItem.ToString();
+                using (StreamReader reader = new StreamReader(caliste))
+                {
+                    using (StreamWriter writer = new StreamWriter(calistetmp))
+                    {
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (String.Compare(line, line_to_delete) == 0)
+                                continue;
+
+                            writer.WriteLine(line);
+                        }
+                    }
+                }
+                File.Move(calistetmp, caliste);
+                File.Delete(calistetmp);
+                Cblist_read(true);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), sender.ToString());
                 
+
             }
         }
     }
