@@ -70,7 +70,7 @@ namespace XDocument_Sample
             sw.Close();
 
             Cblist_read(true);
-            
+
 
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -85,6 +85,7 @@ namespace XDocument_Sample
 
                   // From here the CA Section
                   new XElement("CA",
+                    new XAttribute("Name", "TestPL"),
                     new XElement("name", "Sample-CA"),
                     new XElement("type", "CA"),
                     new XElement("id", "0"),
@@ -107,6 +108,7 @@ namespace XDocument_Sample
                           )
                     )
                   ),
+
                   // From here the Intermediate Section
                   new XElement("Intermediate",
                     new XElement("name", "Sample-Intermediate"),
@@ -409,9 +411,16 @@ namespace XDocument_Sample
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), sender.ToString());
-                
+
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            XDocument doc = XDocument.Load("xml.xml");
+            IEnumerable<XElement> elements = doc.Descendants("book")
+                                    .Where(e => e.Attribute("category")?.Value == "fiction");
         }
     }
 
