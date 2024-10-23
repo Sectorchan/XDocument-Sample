@@ -419,8 +419,18 @@ namespace XDocument_Sample
         private void button1_Click(object sender, EventArgs e)
         {
             XDocument doc = XDocument.Load("xml.xml");
-            IEnumerable<XElement> elements = doc.Descendants("book")
-                                    .Where(e => e.Attribute("category")?.Value == "fiction");
+            IEnumerable<XElement> elements = doc.Descendants("CA")
+                                    .Where(e => e.Attribute("Name")?.Value == "TestPL");
+            if (elements != null)
+            {
+                // Element found, perform further operations
+                MessageBox.Show(elements.ToString(),"Found");
+               
+            }
+            else
+            {
+                MessageBox.Show("Not found");
+            }
         }
     }
 
