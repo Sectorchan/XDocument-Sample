@@ -41,27 +41,21 @@ namespace XDocument_Sample.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public int ServerID {
             get {
                 return ((int)(this["ServerID"]));
             }
-            set {
-                this["ServerID"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public int UserID {
             get {
                 return ((int)(this["UserID"]));
-            }
-            set {
-                this["UserID"] = value;
             }
         }
     }
