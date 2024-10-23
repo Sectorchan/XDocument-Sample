@@ -1,12 +1,4 @@
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.IO;
-using System.Text;
-using System.Windows.Forms;
 using System.Xml.Linq;
-using System.Xml.XPath;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace XDocument_Sample
 {
@@ -416,27 +408,49 @@ namespace XDocument_Sample
 
         private void findServer_Click(object sender, EventArgs e)
         {
-            string tmp = lb_caliste.SelectedItem.ToString();
-            //XDocument doc = XDocument.Load("xml.xml");
-            //IEnumerable<XElement> elements = doc.Descendants(tmp);
+            try
+            {
+                string tmp = lb_caliste.SelectedItem.ToString();
+                //XDocument doc = XDocument.Load("xml.xml");
+                //IEnumerable<XElement> elements = doc.Descendants(tmp);
 
-            //StreamWriter sw = new StreamWriter("tmp.txt");
-            //sw.WriteLine(elements);
-            //sw.Close();
-            //MessageBox.Show("Found ");
-            XDocument doc = XDocument.Load("xml.xml");
-            IEnumerable<XElement> elements = doc.Descendants("CA")
-                                    .Where(e => e.Attribute("Name")?.Value == "TestPL");
-            if (elements != null)
-            {
-                // Element found, perform further operations
-                MessageBox.Show(elements.ToString(),"Found");
-               
+                StreamWriter sw = new StreamWriter("tmp.txt");
+                //sw.WriteLine(elements);
+                //sw.Close();
+                //MessageBox.Show("Found ");
+                XDocument doc = XDocument.Load("xml.xml");
+                //IEnumerable<XElement> elements = doc.Descendants("CA")
+                //                        .Where(e => e.Attribute("Name")?.Value == "TestPL");
+                //if (elements != null)
+                //{
+                    foreach (XNode node in doc.Descendants("CA")
+                                        .Where(e => e.Attribute("Name")?.Value == "TestPL"))
+                    {
+                        //if (node is XElement)
+                        //{
+                        //    XElement element = (XElement)node;
+                        //    if (element.Name.LocalName.Equals(elementName))
+                              
+                        //}
+                        sw.WriteLine(node.ToString());
+                    }
+
+
+
+
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Not found");
+                //}
+                sw.Close();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Not found");
+                MessageBox.Show(ex.ToString(), "Found");
             }
+
+
         }
     }
 
