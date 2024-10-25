@@ -37,8 +37,8 @@
             textBox3 = new TextBox();
             lb_caliste = new ListBox();
             addServerXml = new Button();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
+            id = new TextBox();
+            type = new TextBox();
             textBox6 = new TextBox();
             textBox7 = new TextBox();
             findServer = new Button();
@@ -64,7 +64,7 @@
             // bt_delete
             // 
             bt_delete.Location = new Point(45, 84);
-            bt_delete.Margin = new Padding(2, 2, 2, 2);
+            bt_delete.Margin = new Padding(2);
             bt_delete.Name = "bt_delete";
             bt_delete.Size = new Size(76, 20);
             bt_delete.TabIndex = 2;
@@ -75,7 +75,7 @@
             // createXml
             // 
             createXml.Location = new Point(474, 72);
-            createXml.Margin = new Padding(2, 2, 2, 2);
+            createXml.Margin = new Padding(2);
             createXml.Name = "createXml";
             createXml.Size = new Size(129, 23);
             createXml.TabIndex = 4;
@@ -86,7 +86,7 @@
             // replaceClick
             // 
             replaceClick.Location = new Point(479, 126);
-            replaceClick.Margin = new Padding(2, 2, 2, 2);
+            replaceClick.Margin = new Padding(2);
             replaceClick.Name = "replaceClick";
             replaceClick.Size = new Size(153, 24);
             replaceClick.TabIndex = 5;
@@ -97,7 +97,7 @@
             // textBox2
             // 
             textBox2.Location = new Point(499, 20);
-            textBox2.Margin = new Padding(2, 2, 2, 2);
+            textBox2.Margin = new Padding(2);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(104, 23);
             textBox2.TabIndex = 6;
@@ -105,7 +105,7 @@
             // textBox3
             // 
             textBox3.Location = new Point(658, 126);
-            textBox3.Margin = new Padding(2, 2, 2, 2);
+            textBox3.Margin = new Padding(2);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(104, 23);
             textBox3.TabIndex = 7;
@@ -130,26 +130,26 @@
             addServerXml.UseVisualStyleBackColor = true;
             addServerXml.Click += AddServer_Click;
             // 
-            // textBox4
+            // id
             // 
-            textBox4.Location = new Point(576, 247);
-            textBox4.Margin = new Padding(2, 2, 2, 2);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(104, 23);
-            textBox4.TabIndex = 10;
+            id.Location = new Point(576, 247);
+            id.Margin = new Padding(2);
+            id.Name = "id";
+            id.Size = new Size(104, 23);
+            id.TabIndex = 10;
             // 
-            // textBox5
+            // type
             // 
-            textBox5.Location = new Point(576, 276);
-            textBox5.Margin = new Padding(2, 2, 2, 2);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(104, 23);
-            textBox5.TabIndex = 11;
+            type.Location = new Point(576, 276);
+            type.Margin = new Padding(2);
+            type.Name = "type";
+            type.Size = new Size(104, 23);
+            type.TabIndex = 11;
             // 
             // textBox6
             // 
             textBox6.Location = new Point(576, 308);
-            textBox6.Margin = new Padding(2, 2, 2, 2);
+            textBox6.Margin = new Padding(2);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(104, 23);
             textBox6.TabIndex = 12;
@@ -157,7 +157,7 @@
             // textBox7
             // 
             textBox7.Location = new Point(576, 336);
-            textBox7.Margin = new Padding(2, 2, 2, 2);
+            textBox7.Margin = new Padding(2);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(104, 23);
             textBox7.TabIndex = 13;
@@ -170,7 +170,7 @@
             findServer.TabIndex = 14;
             findServer.Text = "find server";
             findServer.UseVisualStyleBackColor = true;
-            findServer.Click += findServer_Click;
+            findServer.Click += FindServer_Click;
             // 
             // Form1
             // 
@@ -180,8 +180,8 @@
             Controls.Add(findServer);
             Controls.Add(textBox7);
             Controls.Add(textBox6);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
+            Controls.Add(type);
+            Controls.Add(id);
             Controls.Add(addServerXml);
             Controls.Add(lb_caliste);
             Controls.Add(textBox3);
@@ -209,8 +209,8 @@
         private TextBox textBox3;
         private ListBox lb_caliste;
         private Button addServerXml;
-        private TextBox textBox4;
-        private TextBox textBox5;
+        private TextBox id;
+        private TextBox type;
         private TextBox textBox6;
         private TextBox textBox7;
         private Button findServer;

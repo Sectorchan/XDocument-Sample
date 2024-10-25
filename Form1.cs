@@ -68,18 +68,18 @@ namespace XDocument_Sample
             Cblist_read(false);
 
             bool v = true;
-            if (!v)
+            if (v)
             {
                 XDocument doc =
                   new XDocument(
                     new XElement("file",
                       new XElement("name", new XAttribute("filename", "sample")),
-                      new XElement("date", new XAttribute("modified", DateTime.Now)),
+                      //new XElement("date", new XAttribute("modified", DateTime.Now)),
 
                       // From here the CA Section
-                      new XElement("CA",
-                        new XElement("name", "Sample-CA"),
-                        new XAttribute("Name", "TestPL"),
+                      new XElement("Sample-CA",
+                        //new XElement("name","Sample-CA"),
+                        //new XAttribute("Name", "TestPL"),
                         new XElement("type", "CA"),
                         new XElement("id", "0"),
                         new XElement("Private",
@@ -98,8 +98,9 @@ namespace XDocument_Sample
                               new XElement("OU", "IT"),
                               new XElement("CN", "Lang-CA"),
                               new XElement("email", "admin@admin.de")
-                              )
+                            )
                         )
+                      //)
                       ),
 
                       // From here the Intermediate Section
@@ -406,50 +407,17 @@ namespace XDocument_Sample
             }
         }
 
-        private void findServer_Click(object sender, EventArgs e)
+        private void FindServer_Click(object sender, EventArgs e)
         {
-            try
+            string tmpselection = lb_caliste.Items[0].ToString();
+
+            XDocument doc = XDocument.Load("xml.xml");
+            IEnumerable<XElement> ca = doc.Descendants(tmpselection);
+            foreach (XElement cas in ca)
             {
-                string tmp = lb_caliste.SelectedItem.ToString();
-                //XDocument doc = XDocument.Load("xml.xml");
-                //IEnumerable<XElement> elements = doc.Descendants(tmp);
-
-                StreamWriter sw = new StreamWriter("tmp.txt");
-                //sw.WriteLine(elements);
-                //sw.Close();
-                //MessageBox.Show("Found ");
-                XDocument doc = XDocument.Load("xml.xml");
-                //IEnumerable<XElement> elements = doc.Descendants("CA")
-                //                        .Where(e => e.Attribute("Name")?.Value == "TestPL");
-                //if (elements != null)
-                //{
-                    foreach (XNode node in doc.Descendants("CA")
-                                        .Where(e => e.Attribute("Name")?.Value == "TestPL"))
-                    {
-                        //if (node is XElement)
-                        //{
-                        //    XElement element = (XElement)node;
-                        //    if (element.Name.LocalName.Equals(elementName))
-                              
-                        //}
-                        sw.WriteLine(node.ToString());
-                    }
-
-
-
-
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Not found");
-                //}
-                sw.Close();
+                id.Text = cas.Element("id").Value;
+                type.Text = cas.Element("type").Value;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Found");
-            }
-
 
         }
     }
